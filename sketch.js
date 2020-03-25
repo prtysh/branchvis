@@ -1,4 +1,11 @@
 // Bubble class
+let system;
+var canvas;
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
 class Bubble {
   constructor(x, y, diameter, name) {
     this.x = x;
@@ -44,7 +51,7 @@ function loadData() {
   print(data.getColumn('name'));
   for (let r = 0; r < data.getRowCount(); r++)
     for (let c = 0; c < data.getColumnCount(); c++) {
-      bubbles.push(new Bubble(random(width), random(height), random(10,20), data.getString(r,c)));
+      bubbles.push(new Bubble(random(width), random(height), random(10, 20), data.getString(r, c)));
       //bubbles.push(new Bubble(x, y, diameter, label));
     }
 }
@@ -65,7 +72,9 @@ function mousePressed() {
 }
 
 function setup() {
-  createCanvas(640, 360);
+  canvas = createCanvas(windowWidth, windowHeight);
+  canvas.position(0, 0);
+  canvas.style('z-index', '-10');
   loadData();
 }
 
