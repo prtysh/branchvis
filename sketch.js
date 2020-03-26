@@ -16,13 +16,18 @@ function draw() {
   background(255);
 
   // Display all bubbles
-  for (let i = 0; i < bubbles.length; i++) {
-    bubbles[i].display();
-    bubbles[i].rollover(mouseX, mouseY);
+  // for (let i = 0; i < bubbles.length; i++) {
+  //   bubbles[i].display();
+  //   bubbles[i].rollover(mouseX, mouseY);
+  // }
+  for (let i = 0; i < links.length; i++) {
+    links[i].display();
   }
 
+  for (const [key, value] of Object.entries(bubbles)) {
+    value.display();
+    value.rollover(mouseX, mouseY);
+  }
   // Label directions at bottom
-  textAlign(LEFT);
-  fill(0);
-  text('Click to add bubbles.', 10, height - 10);
+  textAlign(CENTER);
 }
