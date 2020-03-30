@@ -1,6 +1,12 @@
 // Bubble class
 let system;
 var canvas;
+var c = document.getElementById("branch");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(0, 0);
+ctx.lineTo(300, 150);
+ctx.stroke(); 
 
 let data; // Global object to hold results from the loadJSON call
 let bubbles = []; // Global array to hold all bubble objects
